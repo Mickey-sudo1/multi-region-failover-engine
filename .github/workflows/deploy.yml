@@ -1,0 +1,28 @@
+name: Global Failover Deployment
+
+# 1. The Trigger: When does this run?
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  configure-infrastructure:
+    runs-on: ubuntu-latest # GitHub gives us a free Linux container
+
+    steps:
+      # Step A: Download your repository code into the container
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step B: Securely load your SSH key from the vault
+      - name: Set up SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 400 ~/.ssh/id_rsa
+
+      # Step C: Run Ansible to configure both AWS servers
+      - name: Execute Ansible Playbook
+        run: |
+          ansible-playbook -i inventory.ini playbook.yml --private-key ~/.ssh/id_rsa
