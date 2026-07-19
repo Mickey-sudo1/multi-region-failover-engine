@@ -1,0 +1,8 @@
+# Ignore Terraform state and plugins
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.tfstate.lock.info
+
+# Ignore Private SSH Keys
+failover_key
