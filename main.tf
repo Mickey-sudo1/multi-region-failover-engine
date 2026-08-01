@@ -141,7 +141,7 @@ resource "aws_cloudfront_distribution" "failover_cdn" {
   
   # Primary Server - Mumbai
   origin {
-    domain_name = "ec2-65-2-179-234.ap-south-1.compute.amazonaws.com"
+    domain_name = "ec2-13-232-184-184.ap-south-1.compute.amazonaws.com"
     origin_id   = "primary-mumbai"
     
     custom_origin_config {
@@ -154,7 +154,7 @@ resource "aws_cloudfront_distribution" "failover_cdn" {
 
   # Backup Server - Singapore
   origin {
-    domain_name = "ec2-13-212-20-230.ap-southeast-1.compute.amazonaws.com"
+    domain_name = "ec2-54-179-244-249.ap-southeast-1.compute.amazonaws.com"
     origin_id   = "backup-singapore"
 
     custom_origin_config {
