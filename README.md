@@ -6,7 +6,7 @@ This project is a highly available, zero-downtime cloud architecture designed to
 By leveraging intelligent routing and continuous integration, the infrastructure actively monitors origin health and seamlessly routes traffic to a standby node in the event of a primary failure—requiring zero human intervention.
 
 ## Architecture
-*(Insert your Mermaid.js diagram or image of your architecture here)*
+Architecture.png
 
 **Traffic Flow:**
 `User Browser` ➔ `HTTPS (Port 443)` ➔ `AWS CloudFront (Global Edge Network)` ➔ `HTTP (Port 80)` ➔ `Active EC2 Origin (Mumbai)` 
